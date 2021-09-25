@@ -1,6 +1,6 @@
 <template>
-  <div class="component p-3">
-    <img :src="ad.tall">
+  <div class="component p-3 ">
+    <img :src="ad.tall" class="shadow">
   </div>
 </template>
 

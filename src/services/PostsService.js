@@ -36,6 +36,24 @@ class PostsService {
     await this.getPosts()
     logger.log(res)
   }
+
+  async getNew() {
+    AppState.posts = []
+    AppState.postsData = {}
+    AppState.current--
+    const res = await api.get(`api/posts?page=${AppState.current}`)
+    AppState.postsData = res.data
+    AppState.posts = res.data.posts.map(p => new Post(p))
+  }
+
+  async getOld() {
+    AppState.posts = []
+    AppState.postsData = {}
+    AppState.current++
+    const res = await api.get(`api/posts?page=${AppState.current}`)
+    AppState.postsData = res.data
+    AppState.posts = res.data.posts.map(p => new Post(p))
+  }
 }
 
 export const postsService = new PostsService()

@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid">
-    <div class="card mb-3" style="max-width: 540px;">
+    <div class="card mb-3 shadow-lg" style="max-width: 540px;">
       <router-link :to="{name: 'Profile', params: {id: post.creatorId}}" class="selectable">
         <img :src="post.img" class="img-fluid rounded-start" alt="...">
       </router-link>

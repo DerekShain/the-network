@@ -10,5 +10,6 @@ export const AppState = reactive({
   likes: [],
   profiles: [],
   next: '',
-  previous: ''
+  previous: '',
+  current: 1
 })

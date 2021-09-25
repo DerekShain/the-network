@@ -1,10 +1,10 @@
 <template>
-  <div class="home d-flex flex-column align-items-center justify-content-center" v-cloak>
-    <div class="card mb-3" style="max-width: 540px;">
-      <img :src="profile.coverImg" class="card-img">
+  <div class=" d-flex  flex-column align-items-center justify-content-center" v-if="profile">
+    <div class="card mb-3 shadow-lg text-light tshadow" style="max-width: 540px;">
+      <img :src="profile.coverImg" class="card-img ">
       <div class="row g-0 card-img-overlay">
         <div class="col-md-4">
-          <img :src="profile.picture" class="img-fluid rounded-start" alt="...">
+          <img :src="profile.picture" class="img-fluid rounded-start shadow" alt="...">
         </div>
         <div class="col-md-8">
           <div class="card-body">
@@ -38,6 +38,11 @@
       <div class="col-md-4 col-sm">
         <Ad v-for="a in ad" :key="a.id" :ad="a" />
       </div>
+    </div>
+  </div>
+  <div class="row p-5 m-5" v-else>
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
     </div>
   </div>
 </template>
@@ -85,5 +90,9 @@ export default {
 .sidebar{
   height: 100vh;
   position: fixed;
+}
+
+.tshadow{
+  text-shadow: 2px 2px #000000;
 }
 </style>

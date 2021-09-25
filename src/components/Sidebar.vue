@@ -17,6 +17,12 @@
           <router-link :to="{ name: 'About' }" class="btn text-success lighten-30 selectable text-uppercase">
             About
           </router-link>
+          <button @click="getNew()" v-if="posts.newer" class="btn btn-info">
+            Newer Posts
+          </button>
+          <button @click="getOld()" v-if="posts.older" class="btn btn-info">
+            Older Posts
+          </button>
           <li>
             <button class=" btn btn-dark text-light selectable" type="button" data-bs-toggle="modal" data-bs-target="#post-form">
               <b>Add a post!</b>
@@ -53,6 +59,9 @@ export default {
       // profile: computed(() => AppState.profile),
       account: computed(() => AppState.account)
     }
+  },
+  async getNew() {
+    await postsService.getNew()
   }
 }
 </script>
