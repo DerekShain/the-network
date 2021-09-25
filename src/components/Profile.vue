@@ -1,31 +1,50 @@
 <template>
-  <div class="col d-flex flex-wrap">
-    This is a test
+  <div class="container">
+    <div class="col d-flex flex-wrap">
+      <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">
+            <!-- {{ profile.name }} -->
+          </h5>
+          <p class="card-text">
+            Some quick example text to build on the card title and make up the bulk of the card's content.
+          </p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            An item
+          </li>
+          <li class="list-group-item">
+            A second item
+          </li>
+          <li class="list-group-item">
+            A third item
+          </li>
+        </ul>
+        <div class="card-body">
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import { computed, watchEffect } from '@vue/runtime-core'
-import { useRoute } from 'vue-router'
-import { postsService } from '../services/PostsService'
-import { profilesService } from '../services/ProfilesService'
-import Pop from '../utils/Pop'
 import { AppState } from '../AppState'
+import { computed } from '@vue/runtime-core'
 export default {
-  // NOTE need to make an onMounted to pull the profiles info
-  setup() {
-    const route = useRoute()
-    async function getPosts() {
-      try {
-        await postsService.getPosts({ creatorId: route.params.id })
-      } catch (error) {
-        Pop.toast(error, 'error')
-      }
+  props: {
+    profile: {
+      type: Object,
+      required: true
     }
+  },
+  setup() {
     return {
-      profile: computed(() => AppState.profile),
-      posts: computed(() => AppState.posts),
       account: computed(() => AppState.account)
+      // profile: computed(() => AppState.profile)
     }
   }
 }

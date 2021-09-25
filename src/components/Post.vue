@@ -12,8 +12,8 @@
             <h5 class="card-title">
               {{ post.creator.name }}
             </h5>
-            <div class="on-hover position-absolute" style="right: 1rem; top: 1rem" v-if="account.id == post.creatorId">
-              <i class="mdi mdi-close text-danger f-20 selectable" @click="deletePost()"></i>
+            <div class="" style="right: 1rem; top: 1rem" v-if="account.id == post.creatorId">
+              <i class="mdi mdi-close text-danger f-20 selectable" @click="deletePost()">Delete Post</i>
             </div>
             <p class="card-text">
               {{ post.body }}
@@ -22,7 +22,7 @@
               <small class="text-muted">Added: {{ new Date(post.updatedAt).toDateString() }}</small>
             </p>
             <p>
-              <i class="mdi mdi-thumb-up-outline selectable" /> Likes {{ post.likes.length }}
+              <i class="mdi mdi-thumb-up-outline selectable" @click="likePost()"> Likes {{ post.likes.length }}</i>
             </p>
           </div>
         </div>
@@ -54,6 +54,14 @@ export default {
           Pop.toast('Deleted!', 'success')
         } catch (error) {
           Pop.toast(error, 'error')
+        }
+      },
+      async likePost() {
+        try {
+          await postsService.likePost(props.post.id)
+          Pop.toast('Thanks for the like!', 'success')
+        } catch (error) {
+          Pop.toast(error)
         }
       }
     }

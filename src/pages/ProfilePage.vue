@@ -1,10 +1,13 @@
 <template>
   <div class="home d-flex flex-column align-items-center justify-content-center">
-    <div class=" container-flex row">
-      <div class="col ">
+    <div class="container-flex row">
+      <div class="col-md-2 col-sm">
+        <Profile v-for="a in profiles" :key="a.id" :profile="a" />
+      </div>
+      <div class="col-md-4 col-sm">
         <Post v-for="p in posts" :key="p.id" :post="p" />
       </div>
-      <div class="col">
+      <div class="col-md-4 col-sm">
         <Ad v-for="a in ad" :key="a.id" :ad="a" />
       </div>
     </div>
@@ -20,6 +23,7 @@ import { adsService } from '../services/AdsService'
 import { AppState } from '../AppState'
 import { profilesService } from '../services/ProfilesService'
 export default {
+
   setup() {
     const route = useRoute()
     async function getPosts() {
@@ -40,7 +44,8 @@ export default {
       user: computed(() => AppState.user),
       posts: computed(() => AppState.posts),
       account: computed(() => AppState.account),
-      ad: computed(() => AppState.ads)
+      ad: computed(() => AppState.ads),
+      profile: computed(() => AppState.profiles)
     }
   }
 }

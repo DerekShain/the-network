@@ -26,6 +26,7 @@ export default {
         await postsService.getPosts()
         // await profilesService.getProfileById()
         await adsService.getAds()
+        // await postsService.likePost()
       } catch (error) {
         Pop.toast(error, 'error')
       }
@@ -34,7 +35,8 @@ export default {
       posts: computed(() => AppState.posts),
       // profile: computed(() => AppState.profile),
       account: computed(() => AppState.account),
-      ad: computed(() => AppState.ads)
+      ad: computed(() => AppState.ads),
+      like: computed(() => AppState.likes)
     }
   }
 }

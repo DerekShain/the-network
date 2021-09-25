@@ -7,10 +7,9 @@ import { api } from './AxiosService'
 class PostsService {
   async getPosts(query = {}) {
     AppState.posts = []
-    logger.log('query', query)
     const res = await api.get('api/posts' + convertToQuery(query))
+    AppState.posts = res.data.posts.map(g => new Post(g))
     logger.log(res)
-    AppState.posts = res.data.posts.map(p => new Post(p))
   }
 
   async createPost(newPost) {
@@ -28,7 +27,14 @@ class PostsService {
   async searchPosts(query) {
     const res = await api.get(`api/posts/?query=${query}`)
     logger.log('searchPost', res)
-    AppState.posts = res.data.posts.map(p => new Post(p))
+    AppState.posts = res.data.posts.map(s => new Post(s))
+  }
+
+  async likePost(id) {
+    const res = await api.post(`api/posts/${id}/like`)
+    AppState.likes.filter((f) => f.like)
+    await this.getPosts()
+    logger.log(res)
   }
 }
 

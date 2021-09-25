@@ -31,11 +31,6 @@
         <span class="visually-hidden">Loading...</span>
       </div>
     </div>
-    <div class="row">
-      <div class="col">
-        {{ account.name }}
-      </div>
-    </div>
   </div>
 </template>
 
@@ -53,6 +48,7 @@ export default {
       async updateAccount() {
         try {
           await accountService.editAccount(account.value)
+          Pop.toast('Profile Updated!', 'success')
         } catch (error) {
           Pop.toast(error, 'error')
         }
