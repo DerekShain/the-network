@@ -3,27 +3,30 @@
     <div class="card mb-3" style="max-width: 540px;">
       <router-link :to="{name: 'Profile', params: {id: post.creatorId}}" class="selectable">
         <img :src="post.img" class="img-fluid rounded-start" alt="...">
-        <div class="row g-0">
-          <div class="col-md-4">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">
-                {{ post.creator.name }}
-              </h5>
-              <div class="on-hover position-absolute" style="right: 1rem; top: 1rem" v-if="account.id == post.creatorId">
-                <i class="mdi mdi-close text-danger f-20 selectable" @click="deletePost()"></i>
-              </div>
-              <p class="card-text">
-                {{ post.body }}
-              </p>
-              <p class="card-text">
-                <small class="text-muted">Added: {{ new Date(post.updatedAt).toDateString() }}</small>
-              </p>
+      </router-link>
+      <div class="row g-0">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">
+              {{ post.creator.name }}
+            </h5>
+            <div class="on-hover position-absolute" style="right: 1rem; top: 1rem" v-if="account.id == post.creatorId">
+              <i class="mdi mdi-close text-danger f-20 selectable" @click="deletePost()"></i>
             </div>
+            <p class="card-text">
+              {{ post.body }}
+            </p>
+            <p class="card-text">
+              <small class="text-muted">Added: {{ new Date(post.updatedAt).toDateString() }}</small>
+            </p>
+            <p>
+              <i class="mdi mdi-thumb-up-outline selectable" /> Likes {{ post.likes.length }}
+            </p>
           </div>
         </div>
-      </router-link>
+      </div>
     </div>
   </div>
 </template>

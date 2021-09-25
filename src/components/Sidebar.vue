@@ -23,7 +23,7 @@
             </button>
           </li>
           <li>
-            <!-- <img :src="ad.banner"> -->
+            <Search />
           </li>
         </div>
       </div>

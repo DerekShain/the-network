@@ -24,6 +24,12 @@ class PostsService {
     logger.log(res)
     AppState.posts = AppState.posts.filter(b => b.id !== postId)
   }
+
+  async searchPosts(query) {
+    const res = await api.get(`api/posts/?query=${query}`)
+    logger.log('searchPost', res)
+    AppState.posts = res.data.posts.map(p => new Post(p))
+  }
 }
 
 export const postsService = new PostsService()
