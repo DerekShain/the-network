@@ -3,8 +3,14 @@
     <Navbar />
   </header>
   <main>
-    <Sidebar />
-    <router-view />
+    <div class="row d-flex">
+      <div class="col-md-2">
+        <Sidebar />
+      </div>
+      <div class="col-md-10">
+        <router-view />
+      </div>
+    </div>
   </main>
   <footer>
   </footer>

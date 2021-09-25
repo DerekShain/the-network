@@ -1,5 +1,5 @@
 <template>
-  <div class="col-2">
+  <div class="col-2 d-flex">
     <div class="sidebar fixed justify-content-between bg-dark d-none d-md-block">
       <div class="top-part">
         <div class="text-white p-3">
@@ -7,7 +7,7 @@
             Hello
           </h3>
           <ul>
-            <img :src="account.picture" />
+            <img :src="account.picture" width="150" />
           </ul>
           <ul>
             {{ account.name }}

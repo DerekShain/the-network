@@ -7,9 +7,16 @@ class AccountService {
     try {
       const res = await api.get('/account')
       AppState.account = res.data
+      logger.log(('Account'), res.data)
     } catch (err) {
       logger.error('HAVE YOU STARTED YOUR SERVER YET???', err)
     }
+  }
+
+  async editAccount(accountData) {
+    const res = await api.put('/account', accountData)
+    logger.log('edit', res)
+    AppState.account = res.data
   }
 }
 
