@@ -5,6 +5,7 @@ export const AppState = reactive({
   user: {},
   account: {},
   posts: [],
+  pd: {},
   profile: {},
   ads: [],
   likes: [],
@@ -12,5 +13,10 @@ export const AppState = reactive({
   next: '',
   previous: '',
   current: 1,
-  total: 0
+  total: 0,
+  data: {
+    page: 0,
+    newer: '',
+    older: ''
+  }
 })

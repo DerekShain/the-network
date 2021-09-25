@@ -37,8 +37,6 @@ import { computed, onMounted } from '@vue/runtime-core'
 import Pop from '../utils/Pop'
 import { postsService } from '../services/PostsService'
 import { AppState } from '../AppState'
-import { logger } from '../utils/Logger'
-// import { profilesService } from '../services/ProfilesService'
 export default {
   name: 'Home',
   setup() {
@@ -46,7 +44,6 @@ export default {
     onMounted(async() => {
       try {
         await postsService.getPosts()
-        // await profilesService.getProfileById()
       } catch (error) {
         Pop.toast(error, 'error')
       }
@@ -54,7 +51,6 @@ export default {
     return {
       query,
       posts: computed(() => AppState.posts),
-      // profile: computed(() => AppState.profile),
       account: computed(() => AppState.account),
       total: computed(() => AppState.total),
       current: computed(() => AppState.current)

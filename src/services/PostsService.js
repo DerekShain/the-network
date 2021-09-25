@@ -10,7 +10,10 @@ class PostsService {
     AppState.current = 1
     const res = await api.get('api/posts' + convertToQuery(query))
     AppState.posts = res.data.posts.map(g => new Post(g))
-    AppState.postsData = res.data
+    AppState.pd = res.data
+    AppState.data.older = res.data.older
+    AppState.data.newer = res.data.newer
+
     logger.log(res)
   }
 
@@ -40,6 +43,24 @@ class PostsService {
     AppState.likes.filter((f) => f.like)
     await this.getPosts()
     logger.log('like post', res)
+  }
+
+  async getOld() {
+    AppState.posts = []
+    AppState.pd = {}
+    AppState.current--
+    const res = await api.get(`api/posts?page=${AppState.current}`)
+    AppState.pd = res.data
+    AppState.posts = res.data.posts.map(p => new Post(p))
+  }
+
+  async getNew() {
+    AppState.posts = []
+    AppState.pd = {}
+    AppState.current++
+    const res = await api.get(`api/posts?page=${AppState.current}`)
+    AppState.pd = res.data
+    AppState.posts = res.data.posts.map(p => new Post(p))
   }
 }
 

@@ -34,6 +34,19 @@
       </div>
       <div class="col-md-4 col-sm">
         <Post v-for="p in posts" :key="p.id" :post="p" />
+        <div class="col-12 d-flex justify-content-around m-2">
+          <button class="btn btn-secondary" @click="getOld('?'+pd.newer)" v-if="pd.newer">
+            Previous
+          </button>
+          <div class="" v-if="!pd.newer"></div>
+          <div class="text-muted text-dark">
+            {{ pd.page }}
+          </div>
+          <div class="" v-if="!pd.older"></div>
+          <button class="btn btn-secondary" @click="getNew('?'+pd.older)" v-if="pd.older">
+            Next
+          </button>
+        </div>
       </div>
       <div class="col-md-4 col-sm">
         <Ad v-for="a in ad" :key="a.id" :ad="a" />
@@ -79,7 +92,23 @@ export default {
       user: computed(() => AppState.user),
       posts: computed(() => AppState.posts),
       account: computed(() => AppState.account),
-      ad: computed(() => AppState.ads)
+      ad: computed(() => AppState.ads),
+      data: computed(() => AppState.data),
+      pd: computed(() => AppState.pd),
+      async getOld() {
+        try {
+          await postsService.getOld()
+        } catch (error) {
+          Pop.toast('error', error)
+        }
+      },
+      async getNew() {
+        try {
+          await postsService.getNew()
+        } catch (error) {
+          Pop.toast('error', error)
+        }
+      }
     }
   }
 }
