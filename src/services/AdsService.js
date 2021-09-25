@@ -7,7 +7,6 @@ class AdsService {
     try {
       const res = await api.get('/api/ads')
       AppState.ads = res.data
-      logger.log(res)
     } catch (err) {
       logger.error('Ads Error', err)
     }

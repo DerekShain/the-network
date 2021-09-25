@@ -8,6 +8,9 @@
           height="45"
         />
       </div>
+      <h3 class="text-light ms-2">
+        The NetWork
+      </h3>
     </router-link>
     <button
       class="navbar-toggler"
@@ -23,9 +26,9 @@
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto">
         <li>
-          <router-link :to="{ name: 'About' }" class="btn text-success lighten-30 selectable text-uppercase">
+          <!-- <router-link :to="{ name: 'About' }" class="btn text-success lighten-30 selectable text-uppercase">
             About
-          </router-link>
+          </router-link> -->
         </li>
       </ul>
       <span class="navbar-text">

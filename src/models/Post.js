@@ -1,11 +1,11 @@
 export class Post {
-  constructor(data) {
-    this.body = data.body
-    this.img = data.imgUrl
-    this.creatorId = data.creatorId
-    this.likes = data.likeIds
-    this.id = data.id
-    this.creator = data.creator
-    this.updatedAt = data.updatedAt
+  constructor(postData) {
+    this.body = postData.body
+    this.img = postData.imgUrl
+    this.creatorId = postData.creatorId
+    this.likes = postData.likeIds
+    this.id = postData.id
+    this.creator = postData.creator
+    this.updatedAt = postData.updatedAt
   }
 }

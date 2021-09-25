@@ -16,13 +16,7 @@
         <div class="links">
           <router-link :to="{ name: 'About' }" class="btn text-success lighten-30 selectable text-uppercase">
             About
-          </router-link>
-          <button @click="getNew()" v-if="posts.newer" class="btn btn-info">
-            Newer Posts
-          </button>
-          <button @click="getOld()" v-if="posts.older" class="btn btn-info">
-            Older Posts
-          </button>
+          </router-link><br />
           <li>
             <button class=" btn btn-dark text-light selectable" type="button" data-bs-toggle="modal" data-bs-target="#post-form">
               <b>Add a post!</b>
@@ -38,14 +32,17 @@
 </template>
 
 <script>
+import { ref } from '@vue/reactivity'
 import { computed, onMounted } from '@vue/runtime-core'
 import Pop from '../utils/Pop'
 import { postsService } from '../services/PostsService'
 import { AppState } from '../AppState'
+import { logger } from '../utils/Logger'
 // import { profilesService } from '../services/ProfilesService'
 export default {
   name: 'Home',
   setup() {
+    const query = ref('')
     onMounted(async() => {
       try {
         await postsService.getPosts()
@@ -55,13 +52,13 @@ export default {
       }
     })
     return {
+      query,
       posts: computed(() => AppState.posts),
       // profile: computed(() => AppState.profile),
-      account: computed(() => AppState.account)
+      account: computed(() => AppState.account),
+      total: computed(() => AppState.total),
+      current: computed(() => AppState.current)
     }
-  },
-  async getNew() {
-    await postsService.getNew()
   }
 }
 </script>

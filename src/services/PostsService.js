@@ -7,20 +7,25 @@ import { api } from './AxiosService'
 class PostsService {
   async getPosts(query = {}) {
     AppState.posts = []
+    AppState.current = 1
     const res = await api.get('api/posts' + convertToQuery(query))
     AppState.posts = res.data.posts.map(g => new Post(g))
+    AppState.postsData = res.data
     logger.log(res)
+  }
+
+  async findPostByQuery(query) {
+    const res = await api.get(`api/posts/?query=${query}`)
+    AppState.posts = res.data.posts.map(m => new Post(m))
   }
 
   async createPost(newPost) {
     const res = await api.post('api/posts', newPost)
     AppState.posts.unshift(new Post(res.data))
-    logger.log(res)
   }
 
   async deletePost(postId) {
-    const res = await api.delete('api/posts/' + postId)
-    logger.log(res)
+    await api.delete('api/posts/' + postId)
     AppState.posts = AppState.posts.filter(b => b.id !== postId)
   }
 
@@ -34,25 +39,7 @@ class PostsService {
     const res = await api.post(`api/posts/${id}/like`)
     AppState.likes.filter((f) => f.like)
     await this.getPosts()
-    logger.log(res)
-  }
-
-  async getNew() {
-    AppState.posts = []
-    AppState.postsData = {}
-    AppState.current--
-    const res = await api.get(`api/posts?page=${AppState.current}`)
-    AppState.postsData = res.data
-    AppState.posts = res.data.posts.map(p => new Post(p))
-  }
-
-  async getOld() {
-    AppState.posts = []
-    AppState.postsData = {}
-    AppState.current++
-    const res = await api.get(`api/posts?page=${AppState.current}`)
-    AppState.postsData = res.data
-    AppState.posts = res.data.posts.map(p => new Post(p))
+    logger.log('like post', res)
   }
 }
 

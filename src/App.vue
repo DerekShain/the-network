@@ -1,4 +1,7 @@
 <template>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
   <header>
     <Navbar />
   </header>
@@ -39,5 +42,8 @@ export default {
 </script>
 <style lang="scss">
 @import "./assets/scss/main.scss";
+body{
 
+  font-family: 'Montserrat', sans-serif;
+}
 </style>
