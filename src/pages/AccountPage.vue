@@ -18,8 +18,19 @@
           <input type="text" v-model="account.github" placeholder="Github"><br />
           <h3> Change your Linkedin</h3>
           <input type="text" v-model="account.linkedin" placeholder="Linkedin"><br />
+          <h3>Whose class are you in?</h3>
+          <input type="text" v-model="account.class" placeholder="Class"><br />
           <h3> Have you graduated?</h3>
           <input type="checkbox" v-model="account.graduated" placeholder="Graduate"><br />
+          <h3> A little about yourself...</h3>
+          <textarea v-model="account.bio"
+                    type="text"
+                    class="form-control"
+                    name="body"
+                    id="body"
+                    rows="5"
+                    placeholder="About you..."
+          ></textarea>
           <button class="btn btn-success ms-1">
             Submit
           </button>

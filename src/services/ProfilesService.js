@@ -6,7 +6,7 @@ class ProfilesService {
   async getProfileById(id) {
     const res = await api.get('api/profiles/' + id)
     logger.log('profile res', res)
-    AppState.user = res.data
+    AppState.profile = res.data
   }
 }
 
