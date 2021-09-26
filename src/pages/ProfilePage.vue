@@ -1,37 +1,12 @@
 <template>
   <div class=" d-flex  flex-column align-items-center justify-content-center p-2" v-if="profile">
-    <div class="card mb-3 shadow-lg text-light tshadow cover-img" :style="{backgroundImage: `url(${profile.coverImg})`}">
-      <!-- <img :src="profile.coverImg" class="card-img "> -->
-      <div class="row g-0 card-img-overlay">
-        <div class="col-md-2">
-          <img :src="profile.picture" class="img-fluid rounded-start shadow" alt="...">
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">
-              {{ profile.name }}
-              <div class="" v-if="profile.graduated == true">
-                <i class="mdi mdi-school f-20 " title="Alumni"></i>
-              </div>
-              <div class="" v-else>
-                <i class="mdi mdi-chair-school f-20 " title="Still Learning"></i>
-              </div>
-            </h5>
-            <li class="card-text">
-              {{ profile.bio }}<br />
-              Class - {{ profile.class }}
-            </li>
-            <p class="card-text">
-              <a :href="profile.github"><i class="mdi mdi-github f-20 selectable"></i></a>
-              <a :href="profile.linkedin"><i class="mdi mdi-linkedin f-20 selectable"></i></a>
-            </p>
-          </div>
-        </div>
-      </div>
+    <div class="row d-flex">
+      <Ad />
     </div>
+
+    <Profile />
+
     <div class="container-flex row">
-      <!-- <div class="col-md-2 col-sm">
-      </div> -->
       <div class="col-md-8 col-sm">
         <Post v-for="p in posts" :key="p.id" :post="p" />
         <div class="col-12 d-flex justify-content-around m-2">
@@ -48,11 +23,9 @@
           </button>
         </div>
       </div>
-      <div class="col-md-4 col-sm">
-        <Ad v-for="a in ad" :key="a.id" :ad="a" />
-      </div>
     </div>
   </div>
+
   <div class="row p-5 m-5" v-else>
     <div class="spinner-border" role="status">
       <span class="visually-hidden">Loading...</span>
@@ -90,9 +63,7 @@ export default {
     return {
       profile,
       posts: computed(() => AppState.posts),
-      account: computed(() => AppState.account),
       ad: computed(() => AppState.ads),
-      data: computed(() => AppState.data),
       pd: computed(() => AppState.pd),
       async getOld() {
         try {
@@ -115,17 +86,4 @@ export default {
 
 <style scoped lang="scss">
 
-.sidebar{
-  height: 100vh;
-  position: fixed;
-}
-
-.tshadow{
-  text-shadow: 2px 2px #000000;
-}
-.cover-img{
-  height: 30vh;
-  width: 50vw;
-  background-position: center center;
-}
 </style>

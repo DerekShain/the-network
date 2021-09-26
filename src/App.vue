@@ -6,11 +6,11 @@
     <Navbar />
   </header>
   <main>
-    <div class="row d-flex">
+    <div class=" d-flex">
       <div class="col-md-2">
         <Sidebar />
       </div>
-      <div class="col-md-6 d-flex ">
+      <div class="col-md-10">
         <router-view />
       </div>
     </div>
@@ -57,10 +57,10 @@ body{
   font-family: 'Montserrat', sans-serif;
 }
 
-   /* .row{
-            height: 100px;
-        } */
-    *{
-        outline: red solid 1px;
-    }
+  //  /* .row{
+  //           height: 100px;
+  //       } */
+  //   *{
+  //       outline: red solid 1px;
+  //   }
 </style>

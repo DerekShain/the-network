@@ -1,24 +1,23 @@
 <template>
   <div class="row d-flex">
-    <div class="col-md-6">
-      <Post v-for="p in posts" :key="p.id" :post="p" class="p-2 d-flex" />
-      <div class="col-12 d-flex justify-content-around m-2">
-        <button class="btn btn-secondary" @click="getOld('?'+pd.newer)" v-if="pd.newer">
-          Previous
-        </button>
-        <div class="" v-if="!pd.newer"></div>
-        <div class="text-muted text-dark">
-          {{ pd.page }}
-        </div>
-        <div class="" v-if="!pd.older"></div>
-        <button class="btn btn-secondary" @click="getNew('?'+pd.older)" v-if="pd.older">
-          Next
-        </button>
-      </div>
-      <div class="col-md-2">
-        <Ad v-for="a in ad" :key="a.id" :ad="a" />
-      </div>
+    <Ad />
+  </div>
+
+  <div class="d-flex cardsSpace">
+    <Post v-for="p in posts" :key="p.id" :post="p" class="p-2" />
+  </div>
+  <div class="col-12 d-flex justify-content-around m-2">
+    <button class="btn btn-secondary" @click="getOld('?'+pd.newer)" v-if="pd.newer">
+      Previous
+    </button>
+    <div class="" v-if="!pd.newer"></div>
+    <div class="text-muted text-dark">
+      {{ pd.page }}
     </div>
+    <div class="" v-if="!pd.older"></div>
+    <button class="btn btn-secondary" @click="getNew('?'+pd.older)" v-if="pd.older">
+      Next
+    </button>
   </div>
 </template>
 
@@ -65,10 +64,16 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style>
 
 .sidebar{
   height: 100vh;
   position: fixed;
+}
+
+.cardsSpace{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <form @submit.prevent="searchPosts" class bg-white>
-    <div class="form-group">
+    <!-- <div class="form-group">
       <label for="search" class="sr-only"></label>
       <input v-model="query"
              type="text"
@@ -12,7 +12,7 @@
     </div>
     <button class="btn btn-success" type="submit">
       Search
-    </button>
+    </button> -->
     <div class="input-group mb-3">
       <input v-model="query"
              type="text"
