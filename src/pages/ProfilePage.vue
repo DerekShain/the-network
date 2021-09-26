@@ -61,7 +61,7 @@
 </template>
 
 <script>
-import { computed, watchEffect, onMounted } from '@vue/runtime-core'
+import { computed, watchEffect } from '@vue/runtime-core'
 import { useRoute } from 'vue-router'
 import Pop from '../utils/Pop'
 import { postsService } from '../services/PostsService'

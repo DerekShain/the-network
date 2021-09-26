@@ -14,17 +14,21 @@
           </ul>
         </div>
         <div class="links">
-          <router-link :to="{ name: 'About' }" class="btn text-success lighten-30 selectable text-uppercase">
-            About
-          </router-link><br />
-          <li>
-            <button class=" btn btn-dark text-light selectable" type="button" data-bs-toggle="modal" data-bs-target="#post-form">
-              <b>Add a post!</b>
-            </button>
-          </li>
-          <li>
-            <Search />
-          </li>
+          <div class="row-3">
+            <li>
+              <button class=" btn btn-dark text-light selectable" type="button" data-bs-toggle="modal" data-bs-target="#post-form">
+                <b>Add a post!</b>
+              </button>
+            </li>
+            <li>
+              <Search />
+            </li>
+          </div>
+          <div class="row p-5">
+            <router-link :to="{ name: 'About' }" class="btn text-success lighten-30 selectable text-uppercase">
+              About
+            </router-link><br />
+          </div>
         </div>
       </div>
     </div>

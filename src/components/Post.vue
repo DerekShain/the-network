@@ -1,32 +1,27 @@
 <template>
-  <div class="container-fluid">
-    <div class="card mb-3 shadow-lg" style="max-width: 540px;">
-      <router-link :to="{name: 'Profile', params: {id: post.creatorId}}" class="selectable">
-        <img v-if="post.img" :src="post.img" class="img-fluid rounded-start" alt="...">
-        <div class="row g-0">
-          <div class="col-md-4">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">
-                {{ post.name }}
-              </h5>
-              <div class="" style="right: 1rem; top: 1rem" v-if="account.id == post.creatorId">
-                <i class="mdi mdi-close text-danger f-20 selectable" @click="deletePost()">Delete Post</i>
-              </div>
-              <p class="card-text">
-                {{ post.body }}
-              </p>
-              <p class="card-text">
-                <small class="text-muted">Added: {{ new Date(post.updatedAt).toDateString() }}</small>
-              </p>
-            </div>
+  <div class="component">
+    <div class="a-box">
+      <div class="img-container">
+        <div class="img-inner">
+          <div class="inner-skew">
+            <router-link :to="{name: 'Profile', params: {id: post.creatorId}}" class="selectable">
+              <img v-if="post.img" :src="post.img">
+              <img v-else :src="post.creator.picture">
+            </router-link>
           </div>
         </div>
-      </router-link>
-      <p>
-        <i class="mdi mdi-thumb-up-outline selectable" @click="likePost()"> Likes {{ post.likeIds.length }}</i>
-      </p>
+      </div>
+      <div class="text-container overflow-auto text-light">
+        <h3>{{ post.name }}</h3>
+        <div>
+          {{ post.body }}
+          <div class="" style="right: 1rem; top: 1rem" v-if="account.id == post.creatorId">
+            <i class="mdi mdi-close text-danger f-20 selectable" @click="deletePost()">Delete Post</i>
+          </div><br />
+          <i class="mdi mdi-thumb-up-outline selectable" @click="likePost()"> Likes {{ post.likeIds.length }}</i><br />
+          <small class="text-muted">Added: {{ new Date(post.updatedAt).toDateString() }}</small><br />
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -72,6 +67,62 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
+body {
+  text-align: center;
+  color: #eceeec;
+  padding: 30px;
+  background: #f3f4f5;
+  font-family: Arial;
+}
 
+.a-box {
+  display: inline-block;
+  width: 400px;
+  text-align: center;
+}
+
+.img-container {
+    height: 230px;
+    width: 200px;
+    overflow: hidden;
+    border-radius: 0px 0px 20px 20px;
+    display: inline-block;
+}
+
+.img-container img {
+    transform: skew(0deg, -13deg);
+    height: 250px;
+    margin: -35px 0px 0px -70px;
+}
+
+.inner-skew {
+    display: inline-block;
+    border-radius: 20px;
+    overflow: hidden;
+    padding: 0px;
+    transform: skew(0deg, 13deg);
+    font-size: 0px;
+    margin: 30px 0px 0px 0px;
+    background: #1e2b37;
+    height: 250px;
+    width: 200px;
+}
+
+.text-container {
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+  padding: 120px 20px 20px 20px;
+  border-radius: 20px;
+  background:  #1e2b37;
+;
+  margin: -120px 0px 0px 0px;
+  line-height: 19px;
+  font-size: 14px;
+}
+
+.text-container h3 {
+  margin: 20px 0px 10px 0px;
+  color: #04bcff;
+  font-size: 18px;
+}
 </style>

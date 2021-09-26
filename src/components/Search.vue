@@ -13,6 +13,18 @@
     <button class="btn btn-success" type="submit">
       Search
     </button>
+    <div class="input-group mb-3">
+      <input v-model="query"
+             type="text"
+             name="search"
+             required
+             class="form-control bg-white border-0"
+             placeholder="Search for posts here!"
+      >
+      <button class="btn btn-outline-secondary" type="submit" id="button-addon2">
+        Button
+      </button>
+    </div>
   </form>
 </template>
 

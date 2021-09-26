@@ -1,13 +1,19 @@
 $body-bg: #6f7f8c;
-$primary: #2f3c48;
-$secondary: #6f7f8c;
-$success: #3e4d59;
-$info: #5c8f94;
-$warning: #fbcf33;
-$danger: #cc330d;
-$light: #eceeec;
-$dark: #1e2b37;
-$grey: #6f7f8c;
+$grey: #3e585a;
+
+$primary:#2f3c48;
+$secondary:#6f7f8c;
+$success:#3e4d59;
+$danger:#cc330d;
+$info:#5c8f94;
+$warning:#6e9fa5;
+$light:#eceeec;
+$dark:#1e2b37;
+$enable-gradients:true;
+$spacer:1.2rem;
+$border-width:0;
+$btn-border-radius:.25rem;
+@import "bootstrap";
 
 $font-sans-serif: Montserrat;
 $font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace, Montserrat;

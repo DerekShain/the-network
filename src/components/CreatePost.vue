@@ -7,7 +7,6 @@
              name="imgUrl"
              placeholder="Make sure it's a URL!"
              v-model="editable.imgUrl"
-             required
       >
     </div>
     <div class="form-group">

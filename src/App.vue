@@ -10,7 +10,7 @@
       <div class="col-md-2">
         <Sidebar />
       </div>
-      <div class="col-md-10">
+      <div class="col-md-6 d-flex ">
         <router-view />
       </div>
     </div>
@@ -29,13 +29,23 @@
 </template>
 
 <script>
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { AppState } from './AppState'
+import { adsService } from './services/AdsService'
+import Pop from './utils/Pop'
 export default {
   name: 'App',
   setup() {
+    onMounted(async() => {
+      try {
+        await adsService.getAds()
+      } catch (error) {
+        Pop.toast(error, 'error')
+      }
+    })
     return {
-      appState: computed(() => AppState)
+      appState: computed(() => AppState),
+      ad: computed(() => AppState.ads)
     }
   }
 }
@@ -46,4 +56,11 @@ body{
 
   font-family: 'Montserrat', sans-serif;
 }
+
+   /* .row{
+            height: 100px;
+        } */
+    *{
+        outline: red solid 1px;
+    }
 </style>
