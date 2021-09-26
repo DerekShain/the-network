@@ -1,12 +1,29 @@
 import { AppState } from '../AppState'
-import { logger } from '../utils/Logger'
+import { Post } from '../models/Post'
 import { api } from './AxiosService'
 
 class ProfilesService {
   async getProfileById(id) {
     const res = await api.get('api/profiles/' + id)
-    logger.log('profile res', res)
     AppState.profile = res.data
+  }
+
+  async getOld(id) {
+    AppState.posts = []
+    AppState.pd = {}
+    AppState.current--
+    const res = await api.get(`api/posts/?creatorId=${id}&page=${AppState.current}`)
+    AppState.pd = res.data
+    AppState.posts = res.data.posts.map(p => new Post(p))
+  }
+
+  async getNew(id) {
+    AppState.posts = []
+    AppState.pd = {}
+    AppState.current++
+    const res = await api.get(`api/posts/?creatorId=${id}&page=${AppState.current}`)
+    AppState.pd = res.data
+    AppState.posts = res.data.posts.map(p => new Post(p))
   }
 }
 

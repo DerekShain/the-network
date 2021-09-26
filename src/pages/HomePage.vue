@@ -1,7 +1,7 @@
 <template>
-  <div class="home d-flex flex-column align-items-center justify-content-center">
-    <div class=" container-flex row">
-      <div class="col ">
+  <div class="home d-flex align-items-center ">
+    <div class="row">
+      <div class="col p-2">
         <Post v-for="p in posts" :key="p.id" :post="p" />
         <div class="col-12 d-flex justify-content-around m-2">
           <button class="btn btn-secondary" @click="getOld('?'+pd.newer)" v-if="pd.newer">
@@ -45,7 +45,7 @@ export default {
       posts: computed(() => AppState.posts),
       account: computed(() => AppState.account),
       ad: computed(() => AppState.ads),
-      like: computed(() => AppState.likes),
+      likeIds: computed(() => AppState.likeIds),
       data: computed(() => AppState.data),
       pd: computed(() => AppState.pd),
       async getOld() {
