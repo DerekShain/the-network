@@ -18,7 +18,7 @@
         Next
       </button>
     </div>
-    <div class="row d-flex">
+    <div class="row justify-content-center">
       <Ad />
     </div>
   </div>

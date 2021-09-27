@@ -18,7 +18,9 @@
           <div class="" style="right: 1rem; top: 1rem" v-if="account.id == post.creatorId">
             <i class="mdi mdi-close text-danger f-20 selectable" @click="deletePost()">Delete Post</i>
           </div><br />
+
           <i class="mdi mdi-thumb-up-outline selectable" @click="likePost()"> Likes {{ post.likeIds.length }}</i><br />
+
           <small class="text-muted">Added: {{ new Date(post.updatedAt).toDateString() }}</small><br />
         </div>
       </div>
@@ -57,7 +59,7 @@ export default {
       async likePost() {
         try {
           await postsService.likePost(props.post.id)
-          Pop.toast('Thanks for the like!', 'success')
+          Pop.cool('Nice!', 'success')
         } catch (error) {
           Pop.toast(error)
         }

@@ -20,8 +20,9 @@
       </p>
       <p class="card-text">
       </p><p class="card-text">
-        <a :href="profile.github"><i class="mdi mdi-github f-20 selectable"></i></a>
-        <a :href="profile.linkedin"><i class="mdi mdi-linkedin f-20 selectable"></i></a>
+        <a :href="profile.github" title="Check out my GitHub!"><i class="mdi mdi-github f-20 selectable p-2"></i></a>
+        <a :href="profile.linkedin" title="Check out my LinkedIn!"><i class="mdi mdi-linkedin f-20 selectable p-2"></i></a>
+        <a :href="`mailto:${profile.email}`" title="Email Me!"><i class="mdi mdi-email f-20 selectable p-2"></i></a>
       </p>
     </div>
   </div>

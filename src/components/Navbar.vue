@@ -26,9 +26,14 @@
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto">
         <li>
-          <!-- <router-link :to="{ name: 'About' }" class="btn text-success lighten-30 selectable text-uppercase">
+          <div class="d-md-none d-block">
+            <Search />
+          </div>
+        </li>
+        <li>
+          <router-link :to="{ name: 'About' }" class="btn text-success lighten-30 selectable text-uppercase d-md-none d-block">
             About
-          </router-link> -->
+          </router-link>
         </li>
       </ul>
       <span class="navbar-text">

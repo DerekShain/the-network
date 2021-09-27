@@ -13,5 +13,6 @@ export class Profile {
     this.class = data.class
     this.graduate = data.graduated
     this.likeIds = data.likeIds
+    this.email = data.email
   }
 }

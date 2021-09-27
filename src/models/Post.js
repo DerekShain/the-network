@@ -8,5 +8,6 @@ export class Post {
     this.creator = postData.creator
     this.updatedAt = postData.updatedAt
     this.name = postData.creator.name
+    this.likes = postData.likes
   }
 }

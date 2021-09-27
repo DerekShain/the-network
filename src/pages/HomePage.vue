@@ -1,8 +1,4 @@
 <template>
-  <div class="row justify-content-center">
-    <Ad />
-  </div>
-
   <div class="d-flex cardsSpace p-2">
     <Post v-for="p in posts" :key="p.id" :post="p" class="p-2" />
   </div>
@@ -18,6 +14,9 @@
     <button class="btn btn-secondary" @click="getNew('?'+pd.older)" v-if="pd.older">
       Next
     </button>
+  </div>
+  <div class="row justify-content-center">
+    <Ad />
   </div>
 </template>
 

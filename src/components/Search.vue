@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="searchPosts" class bg-white>
+  <form @submit.prevent="searchPosts">
     <div class="input-group mb-3">
       <input v-model="query"
              type="text"
@@ -8,8 +8,8 @@
              class="form-control bg-white border-0"
              placeholder="Search for posts here!"
       >
-      <button class="btn btn-outline-secondary" type="submit" id="button-addon2">
-        Button
+      <button class="btn btn-outline-secondary" type="submit">
+        <i class="mdi mdi-card-search f-20"></i>
       </button>
     </div>
   </form>

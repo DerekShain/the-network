@@ -52,4 +52,27 @@ export default class Pop {
       showConfirmButton: false
     })
   }
+
+  /**
+ *
+ * @param {string} title The title text
+ * @param {string} display 'success', 'error', 'info', 'warning', or 'question'.
+ * @param {string} position 'top', 'top-start', 'top-end', 'center', 'center-start', 'center-end', 'bottom', 'bottom-start', or 'bottom-end'.
+ * @param {number} timer Time in milliseconds.
+ * @param {boolean} progressBar Show progress bar or not respectively.
+ * -----------------------------------
+ * {@link https://sweetalert2.github.io/#configuration|Check out Sweet Alerts}
+ */
+  static cool(title = 'Warning!', display = 'warning', position = 'top-end', timer = 3000, progressBar = true) {
+    Swal.fire({
+      title: title,
+      imageUrl: 'https://c.tenor.com/pfkzWugoB2YAAAAC/isaac-the-orville.gif',
+      icon: display,
+      position: position,
+      timer: timer,
+      timerProgressBar: progressBar,
+      toast: true,
+      showConfirmButton: false
+    })
+  }
 }
