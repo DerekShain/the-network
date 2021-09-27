@@ -1,26 +1,34 @@
 <template>
   <div class="card">
-    <div class="card-header"
-         :style="{backgroundImage: `url(${account.picture})`}"
-    >
-      <div class="card-header-slanted-edge">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 200"><path class="polygon" d="M-20,200,1000,0V200Z" /></svg>
+    <router-link :to="{name: 'Profile', params: {id: account.id}}" class="selectable">
+      <div class="card-header" :style="{backgroundImage: `url(${account.picture})`}">
+        <div class="card-header-slanted-edge">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 200"><path class="polygon" d="M-20,200,1000,0V200Z" /></svg>
+        </div>
       </div>
-    </div>
-
+    </router-link>
     <div class="card-body">
       <h2 class="name">
         Hey, {{ account.name }} !
       </h2>
       <div class="bio">
+        <div class="btn text-success lighten-30 selectable text-uppercase" type="button" data-bs-toggle="modal" data-bs-target="#post-form">
+          <b>Create a Post</b>
+        </div>
         <Search />
       </div>
     </div>
 
-    <div class="card-footer">
+    <div class="card-footer text-center">
+      <router-link :to="{ name: 'Home' }" class="btn text-success lighten-30 selectable text-uppercase">
+        Home
+      </router-link>
       <router-link :to="{ name: 'About' }" class="btn text-success lighten-30 selectable text-uppercase">
         About
-      </router-link><br />
+      </router-link>
+      <router-link :to="{ name: 'Account' }" class="btn text-success lighten-30 selectable text-uppercase">
+        Edit
+      </router-link>
     </div>
   </div>
 </template>
@@ -47,7 +55,8 @@ export default {
       posts: computed(() => AppState.posts),
       account: computed(() => AppState.account),
       total: computed(() => AppState.total),
-      current: computed(() => AppState.current)
+      current: computed(() => AppState.current),
+      profile: computed(() => AppState.profile)
     }
   }
 }

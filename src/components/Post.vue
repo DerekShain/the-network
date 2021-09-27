@@ -1,28 +1,26 @@
 <template>
-  <div class="component">
-    <div class="a-box">
-      <div class="img-container">
-        <div class="img-inner">
-          <div class="inner-skew">
-            <router-link :to="{name: 'Profile', params: {id: post.creatorId}}" class="selectable">
-              <img v-if="post.img" :src="post.img">
-              <img v-else :src="post.creator.picture">
-            </router-link>
-          </div>
+  <div class="a-box">
+    <div class="img-container">
+      <div class="img-inner">
+        <div class="inner-skew">
+          <router-link :to="{name: 'Profile', params: {id: post.creatorId}}" class="selectable">
+            <img v-if="post.img" :src="post.img">
+            <img v-else :src="post.creator.picture">
+          </router-link>
         </div>
       </div>
-      <div class="text-container overflow-auto text-light">
-        <h3>{{ post.name }}</h3>
-        <div>
-          {{ post.body }}
-          <div class="" style="right: 1rem; top: 1rem" v-if="account.id == post.creatorId">
-            <i class="mdi mdi-close text-danger f-20 selectable" @click="deletePost()">Delete Post</i>
-          </div><br />
+    </div>
+    <div class="text-container overflow-auto text-light">
+      <h3>{{ post.name }}</h3>
+      <div>
+        {{ post.body }}
+        <div class="" style="right: 1rem; top: 1rem" v-if="account.id == post.creatorId">
+          <i class="mdi mdi-close text-danger f-20 selectable" @click="deletePost()">Delete Post</i>
+        </div><br />
 
-          <i class="mdi mdi-thumb-up-outline selectable" @click="likePost()"> Likes {{ post.likeIds.length }}</i><br />
+        <i class="mdi mdi-thumb-up-outline selectable" @click="likePost()"> Likes {{ post.likeIds.length }}</i><br />
 
-          <small class="text-muted">Added: {{ new Date(post.updatedAt).toDateString() }}</small><br />
-        </div>
+        <small class="text-muted">Added: {{ new Date(post.updatedAt).toDateString() }}</small><br />
       </div>
     </div>
   </div>
@@ -37,7 +35,6 @@ import { Post } from '../models/Post'
 export default {
   props: {
     post: {
-      // NOTE Specific type of Post
       type: Post,
       required: true
     }

@@ -8,10 +8,9 @@
 
 <script>
 import { ref } from '@vue/reactivity'
-import { computed, onMounted } from '@vue/runtime-core'
+import { onMounted } from '@vue/runtime-core'
 import Pop from '../utils/Pop'
 import { postsService } from '../services/PostsService'
-import { AppState } from '../AppState'
 export default {
   name: 'Home',
   setup() {
@@ -24,11 +23,7 @@ export default {
       }
     })
     return {
-      query,
-      posts: computed(() => AppState.posts),
-      account: computed(() => AppState.account),
-      total: computed(() => AppState.total),
-      current: computed(() => AppState.current)
+      query
     }
   }
 }

@@ -1,8 +1,8 @@
 <template>
-  <div class="col-md-5 p-2" v-if="ads[0] !=null">
+  <div class="col-md-5 pt-2" v-if="ads[0] !=null">
     <img :src="ads[0].banner" class="img-fluid" alt="">
   </div>
-  <div class="col-md-5 p-2" v-if="ads[0] !=null">
+  <div class="col-md-5 pt-2" v-if="ads[0] !=null">
     <img :src="ads[1].banner" class="img-fluid" alt="">
   </div>
 </template>

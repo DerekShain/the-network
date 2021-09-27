@@ -1,7 +1,6 @@
 <template>
-  <div class=" d-flex  flex-column align-items-center justify-content-center p-2" v-if="profile">
+  <div class="d-flex  flex-column align-items-center justify-content-center p-2" v-if="profile">
     <ProfileCard />
-
     <div class="d-flex cardsSpace">
       <Post v-for="p in posts" :key="p.id" :post="p" class="p-2" />
     </div>
@@ -60,7 +59,6 @@ export default {
     return {
       profile,
       posts: computed(() => AppState.posts),
-      ad: computed(() => AppState.ads),
       pd: computed(() => AppState.pd),
       async getOld() {
         try {

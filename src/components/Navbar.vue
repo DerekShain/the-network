@@ -30,9 +30,15 @@
             <Search />
           </div>
         </li>
-        <li>
-          <router-link :to="{ name: 'About' }" class="btn text-success lighten-30 selectable text-uppercase d-md-none d-block">
+        <li class="d-md-none d-block">
+          <router-link :to="{ name: 'Home' }" class="btn text-success lighten-30 selectable text-uppercase">
+            Home
+          </router-link>
+          <router-link :to="{ name: 'About' }" class="btn text-success lighten-30 selectable text-uppercase">
             About
+          </router-link>
+          <router-link :to="{ name: 'Account' }" class="btn text-success lighten-30 selectable text-uppercase">
+            Edit
           </router-link>
         </li>
       </ul>

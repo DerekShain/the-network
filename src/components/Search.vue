@@ -6,10 +6,13 @@
              name="search"
              required
              class="form-control bg-white border-0"
-             placeholder="Search for posts here!"
+             placeholder="Search posts..."
       >
       <button class="btn btn-outline-secondary" type="submit">
         <i class="mdi mdi-card-search f-20"></i>
+      </button>
+      <button class="btn btn-outline-secondary" type="reset">
+        <i class="mdi mdi-restart f-20"></i>
       </button>
     </div>
   </form>

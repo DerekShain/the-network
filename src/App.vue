@@ -6,11 +6,11 @@
     <Navbar />
   </header>
   <main>
-    <div class="d-flex container-fluid">
+    <div class="d-flex container-flex">
       <div class="col-md-2">
         <Sidebar />
       </div>
-      <div class="col-md-10">
+      <div class="col-md-10 ">
         <router-view />
       </div>
     </div>

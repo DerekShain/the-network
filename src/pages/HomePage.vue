@@ -1,8 +1,8 @@
 <template>
-  <div class="d-flex cardsSpace p-2">
-    <Post v-for="p in posts" :key="p.id" :post="p" class="p-2" />
+  <div class="cardsSpace">
+    <Post v-for="p in posts" :key="p.id" :post="p" class="p-3" />
   </div>
-  <div class="col-12 d-flex justify-content-around m-2">
+  <div class="col-12 d-flex justify-content-around">
     <button class="btn btn-secondary" @click="getOld('?'+pd.newer)" v-if="pd.newer">
       Previous
     </button>
@@ -39,10 +39,6 @@ export default {
     })
     return {
       posts: computed(() => AppState.posts),
-      account: computed(() => AppState.account),
-      ad: computed(() => AppState.ads),
-      likeIds: computed(() => AppState.likeIds),
-      data: computed(() => AppState.data),
       pd: computed(() => AppState.pd),
       async getOld() {
         try {

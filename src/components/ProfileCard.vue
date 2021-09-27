@@ -2,15 +2,15 @@
   <div class="card card-custom-wide">
     <div class="card-custom-wide-img" :style="{backgroundImage: `url(${profile.coverImg})`}"></div>
     <div class="card-custom-avatar">
-      <img class="img-fluid" :src="profile.picture" alt="Avatar" />
+      <img class="img-flex" :src="profile.picture" alt="Avatar" />
     </div>
     <div class="card-body">
       <h4 class="card-title">
         {{ profile.name }}
-        <div class="" v-if="profile.graduated == true">
+        <div v-if="profile.graduated == true">
           <i class="mdi mdi-school f-20 " title="Alumni"></i>
         </div>
-        <div class="" v-else>
+        <div v-else>
           <i class="mdi mdi-chair-school f-20 " title="Still Learning"></i>
         </div>
       </h4>
@@ -65,7 +65,6 @@ export default {
   background-position: center;
 }
 
-/* First left setting is a fallback */
 .card-custom-wide .card-custom-avatar img {
   border-radius: 50%;
   box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
