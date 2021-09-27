@@ -66,7 +66,7 @@ export default class Pop {
   static cool(title = 'Warning!', display = 'warning', position = 'top-end', timer = 3000, progressBar = true) {
     Swal.fire({
       title: title,
-      imageUrl: 'https://c.tenor.com/pfkzWugoB2YAAAAC/isaac-the-orville.gif',
+      imageUrl: 'https://c.tenor.com/ZQbD9ld_J9oAAAAC/very-nice.gif',
       icon: display,
       position: position,
       timer: timer,

@@ -17,9 +17,12 @@
         <div class="" style="right: 1rem; top: 1rem" v-if="account.id == post.creatorId">
           <i class="mdi mdi-close text-danger f-20 selectable" @click="deletePost()">Delete Post</i>
         </div><br />
-
-        <i class="mdi mdi-thumb-up-outline selectable" @click="likePost()"> Likes {{ post.likeIds.length }}</i><br />
-
+        <div v-if="post.likeIds.includes(account.id)">
+          <i class="mdi mdi-thumb-up selectable" @click="likePost()"> Likes {{ post.likeIds.length }}</i><br />
+        </div>
+        <div v-else>
+          <i class="mdi mdi-thumb-up-outline selectable" @click="likePost()"> Likes {{ post.likeIds.length }}</i><br />
+        </div>
         <small class="text-muted">Added: {{ new Date(post.updatedAt).toDateString() }}</small><br />
       </div>
     </div>
@@ -78,7 +81,7 @@ body {
 
 .a-box {
   display: inline-block;
-  width: 400px;
+  width: 350px;
   text-align: center;
 }
 
