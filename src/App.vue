@@ -57,10 +57,10 @@ body{
   font-family: 'Montserrat', sans-serif;
 }
 
-   /* .row{
-            height: 100px;
-        } */
-    *{
-        outline: red solid 1px;
-    }
+  //  /* .row{
+  //           height: 100px;
+  //       } */
+  //   *{
+  //       outline: red solid 1px;
+  //   }
 </style>
