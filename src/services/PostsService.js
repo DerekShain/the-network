@@ -1,6 +1,5 @@
 import { AppState } from '../AppState'
 import { Post } from '../models/Post'
-import { logger } from '../utils/Logger'
 import { convertToQuery } from '../utils/Query'
 import { api } from './AxiosService'
 
@@ -34,7 +33,6 @@ class PostsService {
 
   async likePost(id) {
     const res = await api.post(`api/posts/${id}/like`)
-    logger.log('likes', res.data.likes)
     const i = AppState.posts.findIndex(p => p.id === id)
     AppState.posts.splice(i, 1, new Post(res.data))
     AppState.posts = [...AppState.posts]
