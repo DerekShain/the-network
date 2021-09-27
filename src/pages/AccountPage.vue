@@ -8,7 +8,7 @@
         </h3>
       </div>
       <div class="row p-2 justify-content-center">
-        <div class="card bg-dark text-light" style="width: 50vw;">
+        <div class="card bg-dark text-light" style="width: 100%;">
           <img :src="account.picture" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">
