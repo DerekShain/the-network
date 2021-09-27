@@ -6,12 +6,12 @@ import { api } from './AxiosService'
 class PostsService {
   async getPosts(query = '') {
     AppState.posts = []
+    AppState.current = 1
     const res = await api.get('api/posts' + convertToQuery(query))
+    AppState.pd = res.data
     AppState.posts = res.data.posts.map(g => new Post(g))
     AppState.data.older = res.data.older
     AppState.data.newer = res.data.newer
-    AppState.pd = res.data
-    AppState.current = 1
   }
 
   async createPost(newPost) {
@@ -40,17 +40,19 @@ class PostsService {
 
   async getOld() {
     AppState.current--
-    AppState.pd = {}
     AppState.posts = []
+    AppState.pd = {}
     const res = await api.get(`api/posts?page=${AppState.current}`)
+    AppState.pd = res.data
     AppState.posts = res.data.posts.map(p => new Post(p))
   }
 
   async getNew() {
     AppState.current++
-    AppState.pd = {}
     AppState.posts = []
+    AppState.pd = {}
     const res = await api.get(`api/posts?page=${AppState.current}`)
+    AppState.pd = res.data
     AppState.posts = res.data.posts.map(p => new Post(p))
   }
 }

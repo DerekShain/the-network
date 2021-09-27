@@ -45,7 +45,8 @@ export default {
     })
     return {
       appState: computed(() => AppState),
-      ad: computed(() => AppState.ads)
+      ad: computed(() => AppState.ads),
+      pd: computed(() => AppState.pd)
     }
   }
 }

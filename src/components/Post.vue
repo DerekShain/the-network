@@ -43,6 +43,7 @@ export default {
     return {
       account: computed(() => AppState.account),
       profile: computed(() => AppState.profile),
+      pd: computed(() => AppState.pd),
       async deletePost() {
         try {
           const yes = await Pop.confirm('Are you sure you want to delete?')

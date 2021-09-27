@@ -10,17 +10,19 @@ class ProfilesService {
 
   async getOld(id) {
     AppState.current--
-    AppState.pd = {}
     AppState.posts = []
+    AppState.pd = {}
     const res = await api.get(`api/posts/?creatorId=${id}&page=${AppState.current}`)
+    AppState.pd = res.data
     AppState.posts = res.data.posts.map(p => new Post(p))
   }
 
   async getNew(id) {
     AppState.current++
-    AppState.pd = {}
     AppState.posts = []
+    AppState.pd = {}
     const res = await api.get(`api/posts/?creatorId=${id}&page=${AppState.current}`)
+    AppState.pd = res.data
     AppState.posts = res.data.posts.map(p => new Post(p))
   }
 }
