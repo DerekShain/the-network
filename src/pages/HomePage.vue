@@ -1,9 +1,9 @@
 <template>
-  <div class="row d-flex">
+  <div class="row justify-content-center">
     <Ad />
   </div>
 
-  <div class="d-flex cardsSpace">
+  <div class="d-flex cardsSpace p-2">
     <Post v-for="p in posts" :key="p.id" :post="p" class="p-2" />
   </div>
   <div class="col-12 d-flex justify-content-around m-2">

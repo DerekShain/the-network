@@ -1,11 +1,9 @@
 <template>
-  <div class="row m-0 p-0">
-    <div class="col-md-6 " v-if="ads[0] !=null">
-      <img :src="ads[0].banner" class="img-fluid" alt="">
-    </div>
-    <div class="col-md-6 " v-if="ads[0] !=null">
-      <img :src="ads[1].banner" class="img-fluid" alt="">
-    </div>
+  <div class="col-md-5 p-2" v-if="ads[0] !=null">
+    <img :src="ads[0].banner" class="img-fluid" alt="">
+  </div>
+  <div class="col-md-5 p-2" v-if="ads[0] !=null">
+    <img :src="ads[1].banner" class="img-fluid" alt="">
   </div>
 </template>
 

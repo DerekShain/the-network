@@ -6,7 +6,7 @@
     <Navbar />
   </header>
   <main>
-    <div class=" d-flex">
+    <div class="d-flex container-fluid">
       <div class="col-md-2">
         <Sidebar />
       </div>
@@ -57,10 +57,10 @@ body{
   font-family: 'Montserrat', sans-serif;
 }
 
-  //  /* .row{
-  //           height: 100px;
-  //       } */
-  //   *{
-  //       outline: red solid 1px;
-  //   }
+   /* .row{
+            height: 100px;
+        } */
+    *{
+        outline: red solid 1px;
+    }
 </style>

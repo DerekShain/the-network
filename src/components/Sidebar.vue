@@ -1,6 +1,6 @@
 <template>
-  <div class="col-2 d-flex m-2">
-    <div class="sidebar fixed justify-content-between d-none d-md-block">
+  <div class="col-2">
+    <div class="sidebar d-none d-md-block">
       <AccountCard />
     </div>
   </div>
